@@ -1,4 +1,4 @@
-package software.ulpgc.chess.domain.model;
+package software.ulpgc.chess.application.domain.model;
 
 public enum File {
     A('a'), B('b'), C('c'), D('d'),
