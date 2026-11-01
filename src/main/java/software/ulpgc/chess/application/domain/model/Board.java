@@ -1,5 +1,6 @@
 package software.ulpgc.chess.application.domain.model;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -18,7 +19,13 @@ public final class Board {
     }
 
     public Board move(Square from, Square to) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        Map<Square, Piece> newPieces = new HashMap<>(pieces);
+        Piece piece = newPieces.remove(from);
+        if (piece == null) {
+            throw new IllegalArgumentException("No piece at " + from);
+        }
+        newPieces.put(to, piece);
+        return new Board(newPieces);
     }
 
     private static Map<Square, Piece> initialMap() {
