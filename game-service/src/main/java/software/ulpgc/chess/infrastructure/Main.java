@@ -5,9 +5,11 @@ import io.javalin.config.JavalinConfig;
 import software.ulpgc.chess.application.ports.GameRepository;
 import software.ulpgc.chess.application.ports.GameSerializer;
 import software.ulpgc.chess.application.usecases.CreateGameUseCase;
+import software.ulpgc.chess.application.usecases.GetGameUseCase;
 import software.ulpgc.chess.infrastructure.adapters.InMemoryGameRepository;
 import software.ulpgc.chess.infrastructure.adapters.JsonGameSerializer;
 import software.ulpgc.chess.infrastructure.adapters.endpoints.CreateGameEndPoint;
+import software.ulpgc.chess.infrastructure.adapters.endpoints.GetGameEndPoint;
 
 public class Main {
     private static final GameRepository repository = new InMemoryGameRepository();
@@ -20,5 +22,6 @@ public class Main {
 
     private static void create(JavalinConfig config) {
         config.routes.post("/games", context -> CreateGameEndPoint.use(new CreateGameUseCase(repository, serializer), context).execute());
+        config.routes.get("/games/{id}", context -> GetGameEndPoint.use(new GetGameUseCase(repository, serializer), context).execute());
     }
 }
