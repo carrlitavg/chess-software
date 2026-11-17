@@ -2,16 +2,13 @@ package software.ulpgc.chess.game.architecture.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static software.ulpgc.chess.game.architecture.model.Piece.*;
 import static software.ulpgc.chess.game.architecture.model.Square.at;
 
-public final class Board {
-    private final Map<Square, Piece> pieces;
-
-    public Board(Map<Square, Piece> pieces) {
-        this.pieces = Map.copyOf(pieces);
+public record Board(Map<Square, Piece> pieces) {
+    public Board {
+        pieces = Map.copyOf(pieces);
     }
 
     public static Board initial() {
@@ -84,28 +81,5 @@ public final class Board {
         } else {
             return pieceAt(next) == null && isPathClear(next, to);
         }
-    }
-
-    public Map<Square, Piece> pieces() {
-        return pieces;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Board) obj;
-        return Objects.equals(this.pieces, that.pieces);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(pieces);
-    }
-
-    @Override
-    public String toString() {
-        return "Board[" +
-                "pieces=" + pieces + ']';
     }
 }
