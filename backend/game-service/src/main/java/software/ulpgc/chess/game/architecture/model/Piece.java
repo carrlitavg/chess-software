@@ -17,31 +17,35 @@ public enum Piece {
     BlackKing,
     BlackQueen;
 
-    Color color() {
-        return isWhite() ? White : Black;
+    public Color color() {
+        if (isWhite()) {
+            return White;
+        } else {
+            return Black;
+        }
     }
 
-    boolean isPawn() {
+    public boolean isPawn() {
         return this == WhitePawn || this == BlackPawn;
     }
 
-    boolean isRook() {
+    public boolean isRook() {
         return this == WhiteRook || this == BlackRook;
     }
 
-    boolean isKnight() {
+    public boolean isKnight() {
         return this == WhiteKnight || this == BlackKnight;
     }
 
-    boolean isBishop() {
+    public boolean isBishop() {
         return this == WhiteBishop || this == BlackBishop;
     }
 
-    boolean isKing() {
+    public boolean isKing() {
         return this == WhiteKing || this == BlackKing;
     }
 
-    boolean isQueen() {
+    public boolean isQueen() {
         return this == WhiteQueen || this == BlackQueen;
     }
 
