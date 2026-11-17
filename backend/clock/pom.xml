@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>software.ulpgc.chess</groupId>
-            <artifactId>game</artifactId>
+            <artifactId>game-service</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

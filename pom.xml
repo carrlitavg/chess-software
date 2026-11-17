@@ -9,10 +9,13 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>backend/game</module>
-        <module>backend/room</module>
+        <module>backend/game-service</module>
         <module>backend/clock</module>
-        <module>backend/api</module>
+        <module>backend/app</module>
+        <module>backend/player-service</module>
+        <module>backend/matches-service</module>
+        <module>backend/user-service</module>
+        <module>backend/login-service</module>
     </modules>
 
     <properties>
