@@ -77,6 +77,15 @@ public final class Board {
         return pieces.get(square);
     }
 
+    public boolean isPathClear(Square from, Square to) {
+        Square next = from.towards(to);
+        if (next.equals(to)) {
+            return true;
+        } else {
+            return pieceAt(next) == null && isPathClear(next, to);
+        }
+    }
+
     public Map<Square, Piece> pieces() {
         return pieces;
     }

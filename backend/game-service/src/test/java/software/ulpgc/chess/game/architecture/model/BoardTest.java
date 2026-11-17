@@ -38,4 +38,16 @@ class BoardTest {
         board.move(at("e2"), at("e4"));
         assertEquals(Board.initial(), board);
     }
+
+    @Test
+    void path_should_be_clear_when_no_pieces_in_between() {
+        assertTrue(Board.initial().isPathClear(at("a2"), at("a7")));
+        assertTrue(Board.initial().isPathClear(at("e1"), at("e2")));
+    }
+
+    @Test
+    void path_should_not_be_clear_when_a_piece_is_in_between() {
+        assertFalse(Board.initial().isPathClear(at("a1"), at("a8")));
+        assertFalse(Board.initial().isPathClear(at("c1"), at("h6")));
+    }
 }
