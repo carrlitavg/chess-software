@@ -37,4 +37,17 @@ class SquareTest {
     void should_fail_with_null() {
         assertThrows(Square.ParseException.class, () -> Square.at(null));
     }
+
+    @Test
+    void should_know_its_indexes() {
+        assertEquals(4, Square.at("e4").fileIndex());
+        assertEquals(3, Square.at("e4").rankIndex());
+    }
+
+    @Test
+    void should_step_towards_another_square() {
+        assertEquals(Square.at("e2"), Square.at("e1").towards(Square.at("e8")));
+        assertEquals(Square.at("b2"), Square.at("a1").towards(Square.at("h8")));
+        assertEquals(Square.at("g7"), Square.at("h8").towards(Square.at("a1")));
+    }
 }
