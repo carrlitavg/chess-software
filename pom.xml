@@ -11,7 +11,6 @@
     <modules>
         <module>backend/game-service</module>
         <module>backend/clock</module>
-        <module>backend/app</module>
         <module>backend/player-service</module>
         <module>backend/matches-service</module>
         <module>backend/user-service</module>
